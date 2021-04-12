@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    user = User.new(user_params)
+    @user = User.new(user_params)
     user.save
     redirect_to user_path(user.id)
   end
@@ -21,6 +21,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @profile_images = @user.profile_images.page(params[:page]).reverse_order
   end
 
   def destroy

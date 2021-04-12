@@ -4,9 +4,9 @@ class BooksController < ApplicationController
   end
 
   def create
-    book = Book.new(_params)
-    book.save
-    redirect_to book_path(book.id)
+    @book = Book.new(book_params)
+    @book.save
+    redirect_to books_path
   end
 
   def index
@@ -25,8 +25,8 @@ class BooksController < ApplicationController
   end
 
   private
-  def list_params
-    params.require(:list).permit(:title, :body, :prpfile_image)
+  def book_params
+    params.permit(:title, :body, :profile_image)
   end
 
 end
