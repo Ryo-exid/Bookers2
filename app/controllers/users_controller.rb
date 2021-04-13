@@ -20,8 +20,9 @@ class UsersController < ApplicationController
   end
 
   def show
+    @book = Book.new
     @user = User.find(params[:id])
-    @profile_images = @user.profile_images.page(params[:page]).reverse_order
+    @user.name = current_user
   end
 
   def destroy
