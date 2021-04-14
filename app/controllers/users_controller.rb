@@ -14,6 +14,7 @@ class UsersController < ApplicationController
     @books = Book.all
     @book = Book.new
     @user = current_user
+    @newbook = Book.new
   end
 
   def edit
@@ -24,6 +25,7 @@ class UsersController < ApplicationController
     @book = Book.new
     @user = User.find(params[:id])
     @books = @user.books
+    @newbook = Book.new
   end
 
   def update

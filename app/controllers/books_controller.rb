@@ -17,6 +17,7 @@ class BooksController < ApplicationController
     @book = Book.new
     @users = User.all
     @user = current_user
+    @newbook = Book.new
   end
 
   def show
@@ -44,7 +45,7 @@ class BooksController < ApplicationController
 
   private
   def book_params
-    params.require(:book).permit(:title, :body, :profile_image)
+    params.require(:book).permit(:title, :body)
   end
 
 end
