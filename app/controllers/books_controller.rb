@@ -40,8 +40,11 @@ class BooksController < ApplicationController
     # p '--------------------------'
     # p flash[:tsst] = 'aaa'
     @book = Book.find(params[:id])
-    @book.update(book_params)
-    redirect_to book_path(@book.id), notice: "You have updated book successfully."
+    if @book.update(book_params)
+      redirect_to book_path(@book.id), notice: "You have updated book successfully."
+    else
+      render :edit
+    end
   end
 
   def destroy
