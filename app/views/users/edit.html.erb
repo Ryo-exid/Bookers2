@@ -3,6 +3,18 @@
   <div class="row">
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
     <h2>User info</h2>
+
+    <div id="error_explanation">
+      <% if @user.errors.any? %>
+        <h3><%= @user.errors.count %> error prohibited this obj from being saved:</h3>
+        <ul>
+          <% @user.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      <% end %>
+    </div>
+
     <%= form_with model:@user, local:true do |f| %>
       <!--<input name="utf8" type="hidden" value="✓">-->
       <!--<input type="hidden" name="_method" value="patch">-->
