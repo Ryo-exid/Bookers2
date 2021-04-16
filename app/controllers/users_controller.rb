@@ -15,6 +15,12 @@ class UsersController < ApplicationController
     unless @user == current_user.id
       redirect_to book_path(current_user)
     end
+
+    # if @user == current_user
+    #   render "edit"
+    # else
+    #   redirect_to user_path(current_user)
+    # end
   end
 
   def show
@@ -43,7 +49,9 @@ class UsersController < ApplicationController
 
   def correct_user
     @user = User.find(params[:id])
-    redirect_to(user_url) unless @user == current_user
+    unless @user == current_user
+      redirect_to(root_path)
+    end
   end
 
 end
