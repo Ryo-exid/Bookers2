@@ -36,7 +36,7 @@ class BooksController < ApplicationController
 
   def update
     # p '--------------------------'
-    # p flash[:tsst] = 'aaa'
+    # p flash[:tsst] = 'aaaa'
     @book = Book.find(params[:id])
     if @book.update(book_params)
       redirect_to book_path(@book.id), notice: "You have updated book successfully."
