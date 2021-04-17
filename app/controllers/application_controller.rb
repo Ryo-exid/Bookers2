@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  before_action :authenticate_user!, except: [:top, :about]
+  before_action :authenticate_user!, except: [:top, :about, :logout]
   before_action :configure_permitted_parameters, if: :devise_controller?
 
 
@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_out_path_for(resource)
-    "/users/sign_in"# ログアウト後に遷移するpathを設定
+    root_path # ログアウト後に遷移するpathを設定
   end
 
 
