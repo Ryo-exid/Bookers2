@@ -14,7 +14,7 @@ class UsersController < ApplicationController
       redirect_to user_path(current_user)
     end
 
-    # if @user == current_user
+    # if @user.id == current_user.
     #   render "edit"
     # else
     #   redirect_to user_path(current_user)
