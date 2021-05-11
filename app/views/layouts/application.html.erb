@@ -40,6 +40,10 @@
       <%= content_tag(:div, value, class: "#{key}") %>
     <% end %>
 
+    <div class="d-flex justify-content-center">
+      <%= render 'search/search' %>
+    </div>
+
     <%= yield %>
 
     <footer>
